@@ -1,4 +1,4 @@
-# bamazon
+# Bamazon
 
 ### Overview
 
@@ -17,4 +17,4 @@ In the supervisor portal, supervisor can  View Product Sales by Department and s
 * NPM dotenv
 
 ## Demo
-<!-- ![Word Guess Cli](liri-node-app.gif)(https://drive.google.com/file/d/1JQJSySh0Kh8H-mx-9L8eUccPUVMx10_F/view) -->
+![Word Guess Cli](bamazon.gif)(https://drive.google.com/file/d/1Y38ShELvqne0N_AYmikluFarxvjCY3iR/view)

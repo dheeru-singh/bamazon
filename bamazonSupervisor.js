@@ -49,19 +49,23 @@ function showStartPrompt() {
   }
 
   function showProduct() {
-    connection.query("SELECT * FROM departments", function(err, res) {
+    var queryvar="SELECT DISTINCT departments.department_id,  departments.department_name, departments.over_head_costs ,COALESCE(sum(products.product_sales), 0)  as ps FROM products Right JOIN departments ON products.department_name=departments.department_name GROUP BY departments.department_id order BY departments.department_id;"
+    connection.query(queryvar, function(err, res) {
       if (err) throw err;
       var displayTable  = new Table({
         head: ['Id', 'Department Name','Over-head Costs','Product Sales','Total Profit']
-      , colWidths: [10, 25,20, 25, 20]
+      , colWidths: [10, 25,20, 20, 20]
       });
       for (var i = 0; i < res.length; i++) {
+        
         displayTable.push([
             res[i].department_id, 
             res[i].department_name, 
-            res[i].over_head_costs, 
-            res[i].product_sales, 
-            res[i].product_sales - res[i].over_head_costs]);
+            res[i].over_head_costs,
+           // JSON.stringify(res[i]) ,
+            res[i].ps, 
+            res[i].ps - res[i].over_head_costs
+          ]);
       }
       console.log(displayTable.toString() + "\n");
       showStartPrompt();
@@ -70,7 +74,7 @@ function showStartPrompt() {
 
 
   function createDepartment(){
-    connection.query("SELECT * FROM departments ", function(err, res) {
+      connection.query("SELECT * FROM departments ", function(err, res) {
         if (err) throw err;
         inquirer
             .prompt([
