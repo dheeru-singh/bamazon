@@ -17,4 +17,4 @@ In the supervisor portal, supervisor can  View Product Sales by Department and s
 * NPM dotenv
 
 ## Demo
-![Word Guess Cli](bamazon.gif)(https://drive.google.com/file/d/1Y38ShELvqne0N_AYmikluFarxvjCY3iR/view)
+![Bamazon Cli](bamazon.gif)(https://drive.google.com/file/d/1Y38ShELvqne0N_AYmikluFarxvjCY3iR/view)
